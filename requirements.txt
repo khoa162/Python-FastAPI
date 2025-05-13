@@ -8,3 +8,4 @@ cryptography
 boto3
 passlib[bcrypt]
 python-multipart
+python-jose[cryptography]==3.3.0
