@@ -18,7 +18,7 @@ FastAPI backend for uploading images to AWS S3, storing encrypted metadata in Mo
 git clone <your-repo>
 cd image_gallery
 python -m venv venv
-source venv/bin/activate
+source venv/Scripts/activate
 pip install -r requirements.txt
 ```
 
