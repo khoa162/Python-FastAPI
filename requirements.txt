@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic[email]
+python-dotenv
+motor
+dependency-injector
+cryptography
+boto3
+passlib[bcrypt]
+python-multipart
