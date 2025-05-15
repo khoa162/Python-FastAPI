@@ -6,9 +6,14 @@ class UserRepository:
     def __init__(self, db: AsyncIOMotorDatabase):
         self.collection = db["users"]
 
-    async def create(self, user: dict) -> str:
-        result = await self.collection.insert_one(user)
+    async def create(self, user: UserModel) -> str:
+        user_dict = user.model_dump(by_alias=True, exclude={"id"})
+        result = await self.collection.insert_one(user_dict)
         return str(result.inserted_id)
 
-    async def find_by_email(self, email: str) -> dict:
-        return await self.collection.find_one({"email": email})
+    async def find_by_email(self, email: str) -> UserModel | None:
+        doc = await self.collection.find_one({"email": email})
+        if doc:
+            doc["id"] = doc.pop("_id")
+            return UserModel.model_validate(doc)
+        return None

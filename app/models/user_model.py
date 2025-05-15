@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 
 class UserModel(BaseModel):
-    id: Optional[ObjectId] = Field(alias="_id")
+    id: Optional[ObjectId] = Field(default=None, alias="_id")
     name: str
     email: str
     password: str
@@ -13,6 +13,7 @@ class UserModel(BaseModel):
 
     class Config:
         arbitrary_types_allowed = True
+        populate_by_name = True
         json_encoders = {
             ObjectId: str,
             datetime: lambda v: v.isoformat()
