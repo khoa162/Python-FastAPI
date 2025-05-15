@@ -12,6 +12,16 @@ FastAPI backend for uploading images to AWS S3, storing encrypted metadata in Mo
 - Encryption via Fernet
 - Dependency Injection with `dependency-injector`
 
+## 🗄️ MongoDB Setup (Docker)
+
+MongoDB is included via `docker-compose`.
+
+To start:
+```bash
+docker-compose up -d
+```
+This will start a local MongoDB instance on `mongodb://localhost:27017/image_gallery`
+
 ## 🛠 Setup
 
 ```bash
@@ -23,16 +33,9 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-## 🗄️ MongoDB Setup (Docker)
+## Swagger
+http://localhost:8000/docs
 
-MongoDB is included via `docker-compose`.
-
-To start:
-```bash
-docker-compose up -d
-```
-
-This will start a local MongoDB instance on `mongodb://localhost:27017/image_gallery`
 
 ### .env file
 
