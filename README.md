@@ -75,6 +75,9 @@ Make sure:
 - `.env` is loaded (via Pydantic `BaseSettings`)
 - AWS credentials are valid
 
+### Fixing MONGO_URL in .env
+If you have any problems with MONGO_URL, please run export MONGODB_URL=mongodb://localhost:27017/image_gallery
+
 ## 🔐 Auth (JWT)
 
 All secured routes require:
